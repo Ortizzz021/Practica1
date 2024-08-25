@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{EF6C25D9-DA8B-4D71-BF7A-49081E23A00C}"
+	ProjectSection(SolutionItems) = preProject
+		Administrador.cs = Administrador.cs
+		Factura.cs = Factura.cs
+		Inventario.cs = Inventario.cs
+		MenuMesero.cs = MenuMesero.cs
+		Mesero.cs = Mesero.cs
+		Mesa.cs = Mesa.cs
+		Pedido.cs = Pedido.cs
+		Restaurante.cs = Restaurante.cs
+		Producto.cs = Producto.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06918B09-E26D-42C6-B0C0-67F3DD4A78FE}
+	EndGlobalSection
+EndGlobal
