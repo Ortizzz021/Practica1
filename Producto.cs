@@ -1,30 +1,34 @@
 ﻿using System;
+using Practica1;
 
-public class Producto
+namespace Practica1
 {
-	private string id;
-	private string nombre;
-	private float precio;
+    public class Producto
+    {
+        private string id;
+        private string nombre;
+        private float precio;
 
-	public Producto(string id, string nombre, float precio)
-	{
-		this.id = id;
-		this.nombre = nombre;
-		this.precio = precio;
-	}
+        public Producto(string id, string nombre, float precio)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.precio = precio;
+        }
 
-	public float obtener_precio()
-	{
+        public float obtener_precio()
+        {
 
-	}
-}
+        }
+    }
 
-public class Trago : Producto
-{
+    public class Trago : Producto
+    {
 
-}
+    }
 
-public class Comida : Producto
-{
+    public class Comida : Producto
+    {
 
+    }
 }

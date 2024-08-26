@@ -1,23 +1,37 @@
 ﻿using System;
+using Practica1;
 
-public class Pedido
+namespace Practica1
 {
-	private string id;
-	private Mesa mesa;
-	private list<Producto> productos;
-	private list<int> cantidad;
-	private float total = 0;
+    public class Pedido
+    {
+        private string id;
+        private Mesa mesa;
+        private list<Producto> productos;
+        private list<int> cantidades;
+        private float total = 0;
 
-	public Pedido(string id, Mesa mesa, list<Producto> productos, list<int> cantidad)
-	{
-		this.id = id;
-		this.mesa = mesa;
-		this.productos = productos;
-		this.cantidad = cantidad;
-	}
+        public Pedido(string id, Mesa mesa, list<Producto> productos, list<int> cantidad)
+        {
+            this.id = id;
+            this.mesa = mesa;
+            this.productos = productos;
 
-	public float calcular_total()
-	{
-
-	}
+            this.cantidad = cantidad;
+        }
+        public float calcular_total()
+        {
+            if (productos.Count == cantidad.Count)
+            {
+                total = 0;
+                for (int i = 0; i < productos.Count; i++)
+                {
+                    producto = productos[i];
+                    total += producto.precio * cantidades[i];
+                }
+            }
+            this.total = total;
+            return total;
+        }
+    }
 }
