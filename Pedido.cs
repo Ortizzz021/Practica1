@@ -1,37 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Practica1;
 
 namespace Practica1
 {
     public class Pedido
     {
-        private string id;
-        private Mesa mesa;
-        private list<Producto> productos;
-        private list<int> cantidades;
-        private float total = 0;
+        private string Id { get; set; }
+        private list<Producto> Productos { get; set; }
+        private list<int> Cantidades { get; set; }
+        private float Total { get; set; }
 
-        public Pedido(string id, Mesa mesa, list<Producto> productos, list<int> cantidad)
+        public Pedido(string id, list<Producto> productos, list<int> cantidad, float total)
         {
-            this.id = id;
-            this.mesa = mesa;
-            this.productos = productos;
-
-            this.cantidad = cantidad;
-        }
-        public float calcular_total()
-        {
-            if (productos.Count == cantidad.Count)
-            {
-                total = 0;
-                for (int i = 0; i < productos.Count; i++)
-                {
-                    producto = productos[i];
-                    total += producto.precio * cantidades[i];
-                }
-            }
-            this.total = total;
-            return total;
+            Id = id;
+            Productos = productos;
+            Cantidad = cantidad;
+            Total = total;
         }
     }
 }

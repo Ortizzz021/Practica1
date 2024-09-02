@@ -1,26 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Practica1;
 
 namespace Practica1
 {
     public class Factura
     {
-        private string id;
-        private Pedido pedido;
-        private float propina;
-        private float total = 0;
+        private string Id { get; set; }
+        private float Total { get; set; }
+        private float Propina { get; set; }
+        private float TotalConPropina { get; set; }
 
-        public Factura(string id, Pedido pedido, float propina)
+        public Factura(string id, float total, float propina)
         {
-            this.id = id;
-            this.pedido = pedido;
-            this.propina = propina;
-        }
-
-        public float calcular_total()
-        {
-            total = this.pedido.calcular_total() + this.propina;
-            return total;
+            Id = id;
+            Total = total;
+            Propina = propina;
+            TotalConPropina = Total + Propina;
         }
     }
 }

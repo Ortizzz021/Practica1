@@ -1,34 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Practica1;
 
 namespace Practica1
 {
     public class Producto
     {
-        private string id;
-        private string nombre;
-        private float precio;
+        private string Nombre { get; set; }
+        private float Precio { get; set; }
 
-        public Producto(string id, string nombre, float precio)
+        public Producto(string nombre, float precio)
         {
-            this.id = id;
-            this.nombre = nombre;
-            this.precio = precio;
+            Nombre = nombre;
+            Precio = precio;
         }
-
-        public float obtener_precio()
-        {
-
-        }
-    }
-
-    public class Trago : Producto
-    {
-
-    }
-
-    public class Comida : Producto
-    {
-
     }
 }

@@ -1,51 +1,60 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Practica1;
 
 namespace Practica1
 {
     public class Mesero
     {
-        private string id;
-        private string nombre;
-        private list<Pedido> pedidos;
-        private float propinas = 0;
+        private string Id { get; set; }
+        private string Nombre { get; set; }
+        private List<Pedido> Pedidos { get; set; }
+        private float Propinas { get; set; }
 
         public Mesero(string id, string nombre)
         {
-            this.id = id;
-            this.nombre = nombre;
-            pedidos = new list<Pedido>
+            Id = id;
+            Nombre = nombre;
+            Pedidos = new List<Pedido>;
+            Propinas = 0;
         }
 
-        public void registrar_pedido(Pedido pedido, Mesa mesa)
+        public void registrar_pedido(list<Pedido> pedidos, list<Mesa> mesas)
         {
-            pedidos.Add(pedido);
-            mesa.agregar_pedido(pedido);
+            Random random = Random();
+            Pedido pedido_aleatorio = pedidos[random.Next(Pedidos.Count)];
+            Mesa mesa_aleatoria = mesas[random.Next(Mesas.Count)];
+
+            mesa_aleatoria.Pedidos.Add(pedido_aleatorio);
+            Pedidos.Add(pedido_aleatorio);
+
+            Console.WriteLine($"El pedido {pedido_aleatorio.Id} fue registrado exitosamente a la mesa {mesa_aleatoria.Numero}.");
         }
 
-        public Factura liquidar_factura(Pedido pedido_a_facturar)
+        public void liquidar_factura(Mesa mesa_a_facturar)
         {
-            foreach(var pedido in pedidos)
+            float total_factura = 0;
+            foreach (var pedido in mesa_a_facturar.Pedidos)
             {
-                if(pedido.id == pedido_a_facturar.id)
-                {
-                    factura = new Factura(id, pedido_a_facturar, calcular_propina(pedido_a_facturar))
-                }
+                total_factura += pedido.Total;
             }
-            return factura;
+            Factura factura = new Factura(mesa_a_facturar.Id, total_factura, calcular_propina(total_factura);
+            mesa_a_facturar.Factura = factura;
+            Console.WriteLine($"La factura fue liquidada correctamente a la mesa {mesa_a_facturar.Numero}.");
         }
 
-        public float calcular_propina(Pedido pedido)
+        public float calcular_propina(float total_factura)
         {
-            total = pedido.calcular_total();
-            propina = total * 0.08
+            float propina = total_factura * 0.08
+            Propinas += propina
             return propina;
         }
 
         public int mesas_atendidas()
         {
-            mesas = 0;
-            for(int i = 0; i < pedidos.Count, i++)
+            int mesas = 0;
+            for(int i = 0; i < Pedidos.Count, i++)
             {
                 mesas += 1;
             }
