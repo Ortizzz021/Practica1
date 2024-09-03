@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Practica1;
 
-namespace Practica1
+namespace Practica1.Pratica1
 {
     public class MenuAdministrador
     {
@@ -54,7 +54,7 @@ namespace Practica1
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                    MostrarMenuAdministrador(); // Volver a mostrar el menú en caso de opción no válida
+                    opciones_administrador(); // Volver a mostrar el menú en caso de opción no válida
                     break;
             }
         }

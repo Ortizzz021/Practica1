@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Practica1;
 
-namespace Practica1
+namespace Practica1.Pratica1
 {
     public class Restaurante
     {
@@ -48,8 +48,8 @@ namespace Practica1
 
                     if (mesero != null)
                     {
-                        MenuMesero menu = MenuMesero(mesero, Mesas, Pedidos);
-                        menu.opciones_mesero();
+                        MenuMesero menu_mesero = new MenuMesero(mesero, Mesas, Pedidos);
+                        menu_mesero.opciones_mesero();
                     }
                     else
                     {
@@ -57,8 +57,8 @@ namespace Practica1
                     }
                     break;
                 case "2":
-                    MenuAdministrador menu = MenuAdministrador();
-                    menu.opciones_administrador();
+                    MenuAdministrador menu_administrador = new MenuAdministrador(Mesas, Meseros, Pedidos);
+                    menu_administrador.opciones_administrador();
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");

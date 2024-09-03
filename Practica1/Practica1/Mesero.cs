@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Practica1;
 
-namespace Practica1
+namespace Practica1.Pratica1
 {
     public class Mesero
     {
@@ -16,13 +16,13 @@ namespace Practica1
         {
             Id = id;
             Nombre = nombre;
-            Pedidos = new List<Pedido>;
+            Pedidos = new List<Pedido>();
             Propinas = 0;
         }
 
         public void registrar_pedido(List<Pedido> pedidos, List<Mesa> mesas)
         {
-            Random random = Random();
+            Random random = new Random();
             Pedido pedido_aleatorio = pedidos[random.Next(pedidos.Count)];
             Mesa mesa_aleatoria = mesas[random.Next(mesas.Count)];
 
@@ -30,11 +30,6 @@ namespace Practica1
             Pedidos.Add(pedido_aleatorio);
 
             Console.WriteLine($"El pedido {pedido_aleatorio.Id} fue registrado exitosamente a la mesa {mesa_aleatoria.Numero}.");
-        }
-
-        private Random Random()
-        {
-            throw new NotImplementedException();
         }
 
         public void liquidar_factura(Mesa mesa_a_facturar)
