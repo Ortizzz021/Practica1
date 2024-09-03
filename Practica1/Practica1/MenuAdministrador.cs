@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Practica1;
-
-namespace Practica1.Pratica1
+﻿namespace Practica1.Pratica1
 {
     public class MenuAdministrador
     {
@@ -29,11 +24,8 @@ namespace Practica1.Pratica1
             Console.WriteLine("3. Evaluar la efectividad de los meseros");
             Console.WriteLine("4. Ver todas las mesas y sus gastos activos");
             Console.WriteLine("5. Salir al menú principal");
-
-            // Leer la opción seleccionada por el administrador
             string opcion = Console.ReadLine();
 
-            // Procesar la opción seleccionada
             switch (opcion)
             {
                 case "1":
@@ -50,11 +42,10 @@ namespace Practica1.Pratica1
                     break;
                 case "5":
                     Console.WriteLine("Saliendo del menú del administrador...");
-                    // Implementa la lógica para salir del menú
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                    opciones_administrador(); // Volver a mostrar el menú en caso de opción no válida
+                    opciones_administrador();
                     break;
             }
         }

@@ -6,7 +6,7 @@ using Practica1;
 namespace Practica1.Pratica1
 {
     public class MenuMesero
-    {
+    { 
         public Mesero Mesero { get; set; }
         public List<Mesa> Mesas { get; set; }
         public List<Pedido> Pedidos { get; set; }
@@ -26,11 +26,8 @@ namespace Practica1.Pratica1
             Console.WriteLine("1. Registrar nuevo pedido");
             Console.WriteLine("2. Liquidar factura");
             Console.WriteLine("3. Salir");
-
-            // Leer la opción seleccionada por el mesero
             string opcion = Console.ReadLine();
 
-            // Procesar la opción seleccionada
             switch (opcion)
             {
                 case "1":
@@ -42,25 +39,21 @@ namespace Practica1.Pratica1
                     {
                         Console.WriteLine($"{i + 1}. Mesa {Mesas[i].Numero}");
                     }
-
-                    // Leer la opción seleccionada por el usuario
                     int seleccion = int.Parse(Console.ReadLine());
                     if (seleccion < 1 || seleccion > Mesas.Count)
                     {
                         Console.WriteLine("Selección no válida.");
                         break;
                     }
-
                     Mesa mesa_a_facturar = Mesas[seleccion - 1];
                     liquidar_factura(mesa_a_facturar);
                     break;
                 case "3":
                     Console.WriteLine("Saliendo del menú del mesero...");
-                    // Implementa la lógica para salir del menú
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                    opciones_mesero(); // Vuelve a mostrar el menú en caso de opción no válida
+                    opciones_mesero();
                     break;
             }
         }

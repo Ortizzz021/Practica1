@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Practica1;
-
-namespace Practica1.Pratica1
+﻿namespace Practica1.Pratica1
 {
     public class Mesa
     {
@@ -15,11 +10,6 @@ namespace Practica1.Pratica1
         {
             Numero = numero;
             Pedidos = new List<Pedido>();
-        }
-
-        public void pagar_factura(Factura factura)
-        {
-
         }
 
         public float calcular_gastos_activos()

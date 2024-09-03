@@ -5,13 +5,13 @@ using Practica1;
 
 namespace Practica1.Pratica1
 {
-    public class Restaurante
+    public class Bar
     {
         private List<Mesa> Mesas { get; set; }
         private List<Mesero> Meseros { get; set; }
         private List<Pedido> Pedidos { get; set; }
 
-        public Restaurante(List<Mesa> mesas, List<Mesero> meseros, List<Pedido> pedidos)
+        public Bar(List<Mesa> mesas, List<Mesero> meseros, List<Pedido> pedidos)
         {
             Mesas = mesas;
             Meseros = meseros;
@@ -21,27 +21,21 @@ namespace Practica1.Pratica1
 
         public void elegir_usuario()
         {
-            // Mostrar mensaje de bienvenida
             Console.WriteLine("Bienvenido a la Aplicación de Gestión del Bar");
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine("Esta aplicacion para el administrador y los meseros les permitira hacer la gestion del bar de una manera eficiente.");
             Console.WriteLine("Los meseros podrán registrar los pedidos y liquidar las facturas para que las mesas paguen.");
             Console.WriteLine("Y por otro lado los administradores podran analizar el trabajo de los meseros y ver que esta pasando en cada mesa");
             Console.WriteLine();
-
-            // Mostrar opciones de menú
             Console.WriteLine("¿Qué menú desea usar?");
             Console.WriteLine("1. Menú del Mesero");
             Console.WriteLine("2. Menú del Administrador");
-
-            // Leer la opción seleccionada por el usuario
             string opcion = Console.ReadLine();
 
-            // Procesar la opción seleccionada
             switch (opcion)
             {
                 case "1":
-                    MostrarMeseros();
+                    mostrar_meseros();
                     Console.WriteLine("Ingrese el ID del mesero que esta usando la aplicación:");
                     string mesero_id = Console.ReadLine();
                     Mesero mesero = Meseros.Find(m => m.Id.Equals(mesero_id, StringComparison.OrdinalIgnoreCase));
@@ -66,7 +60,7 @@ namespace Practica1.Pratica1
             }
         }
 
-        private void MostrarMeseros()
+        private void mostrar_meseros()
         {
             Console.WriteLine("Lista de Meseros:");
             foreach (var mesero in Meseros)

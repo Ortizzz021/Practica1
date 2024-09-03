@@ -8,27 +8,25 @@ namespace Practica1.Pratica1
     {
         static void Main()
         {
-            // Rutas de los archivos
-            string mesasFilePath = "mesas.txt";
-            string pedidosFilePath = "pedidos.txt";
-            string meserosFilePath = "meseros.txt";
+            string mesas_ruta_archivo = "mesas.txt";
+            string pedidos_ruta_archivo = "pedidos.txt";
+            string meseros_ruta_archivo = "meseros.txt";
 
-            // Leer los datos
-            List<Mesa> mesas = ReadMesas(mesasFilePath);
-            List<Pedido> pedidos = ReadPedidos(pedidosFilePath);
-            List<Mesero> meseros = ReadMeseros(meserosFilePath);
+            List<Mesa> mesas = leer_mesas(mesas_ruta_archivo);
+            List<Pedido> pedidos = leer_pedidos(pedidos_ruta_archivo);
+            List<Mesero> meseros = leer_meseros(meseros_ruta_archivo);
 
-            Restaurante restaurante = new Restaurante(mesas, meseros, pedidos);
-            restaurante.elegir_usuario();
+            Bar bar = new Bar(mesas, meseros, pedidos);
+            bar.elegir_usuario();
         }
 
-        static List<Mesa> ReadMesas(string filePath)
+        static List<Mesa> leer_mesas(string ruta_archivo)
         {
             List<Mesa> mesas = new List<Mesa>();
 
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                using (StreamReader sr = new StreamReader(ruta_archivo))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -46,7 +44,7 @@ namespace Practica1.Pratica1
             return mesas;
         }
 
-        static List<Pedido> ReadPedidos(string filePath)
+        static List<Pedido> leer_pedidos(string ruta_archivo)
         {
             List<Pedido> pedidos = new List<Pedido>();
 
@@ -65,7 +63,7 @@ namespace Practica1.Pratica1
 
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                using (StreamReader sr = new StreamReader(ruta_archivo))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -103,13 +101,13 @@ namespace Practica1.Pratica1
             return pedidos;
         }
 
-        static List<Mesero> ReadMeseros(string filePath)
+        static List<Mesero> leer_meseros(string ruta_archivo)
         {
             List<Mesero> meseros = new List<Mesero>();
 
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                using (StreamReader sr = new StreamReader(ruta_archivo))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)

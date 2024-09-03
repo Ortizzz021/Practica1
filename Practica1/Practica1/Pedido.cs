@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Practica1;
-
-namespace Practica1.Pratica1
+﻿namespace Practica1.Pratica1
 {
     public class Pedido
     {
