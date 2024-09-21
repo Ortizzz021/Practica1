@@ -18,6 +18,7 @@
             {
                 Console.WriteLine($"La cantidad de mesas que atendio {mesero.Nombre} fueron {mesero.mesas_atendidas()}");
             }
+            Console.WriteLine();
         }
 
         public void visualizar_propinas()
@@ -26,6 +27,7 @@
             {
                 Console.WriteLine($"El total de propinas que tiene {mesero.Nombre} es de {mesero.Propinas}");
             }
+            Console.WriteLine();
         }
 
         public void evaluar_efectividad()
@@ -36,6 +38,7 @@
                 efectividad = mesero.Propinas / mesero.mesas_atendidas();
                 Console.WriteLine($"La efectividad que tiene el mesero {mesero.Nombre} es de {efectividad}");
             }
+            Console.WriteLine();
         }
 
         public void visualizar_mesas()
@@ -61,6 +64,7 @@
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Practica1;
+using Practica1.Practica1;
 
 namespace Practica1.Pratica1
 {
@@ -20,20 +21,29 @@ namespace Practica1.Pratica1
 
         public void opciones_mesero()
         {
+            int opcion = 0;
             Console.WriteLine($"Bienvenido al Menú del Mesero, {Mesero.Nombre}");
             Console.WriteLine("----------------------------------------------------");
-            Console.WriteLine("¿Que desea hacer?");
-            Console.WriteLine("1. Registrar nuevo pedido");
-            Console.WriteLine("2. Liquidar factura");
-            Console.WriteLine("3. Salir");
-            string opcion = Console.ReadLine();
-
-            switch (opcion)
+            while(opcion != 3)
             {
-                case "1":
+                Console.WriteLine("¿Que desea hacer?");
+                Console.WriteLine("1. Registrar nuevo pedido");
+                Console.WriteLine("2. Liquidar factura");
+                Console.WriteLine("3. Salir");
+                opcion = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+
+                if (opcion <= 0)
+                {
+                    Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    Console.WriteLine();
+                }
+                if (opcion == 1)
+                {
                     registrar_pedido();
-                    break;
-                case "2":
+                }
+                else if (opcion == 2)
+                {
                     Console.WriteLine("Seleccione la mesa para liquidar la factura:");
                     for (int i = 0; i < Mesas.Count; i++)
                     {
@@ -42,20 +52,23 @@ namespace Practica1.Pratica1
                     int seleccion = int.Parse(Console.ReadLine());
                     if (seleccion < 1 || seleccion > Mesas.Count)
                     {
-                        Console.WriteLine("Selección no válida.");
-                        break;
+                        Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
                     }
-                    Mesa mesa_a_facturar = Mesas[seleccion - 1];
-                    liquidar_factura(mesa_a_facturar);
-                    break;
-                case "3":
-                    Console.WriteLine("Saliendo del menú del mesero...");
-                    break;
-                default:
+                    else
+                    {
+                        Mesa mesa_a_facturar = Mesas[seleccion - 1];
+                        liquidar_factura(mesa_a_facturar);
+                    }
+                    
+                }
+                else if (opcion > 3)
+                {
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                    opciones_mesero();
-                    break;
+                    Console.WriteLine();
+                }
+                
             }
+            Console.WriteLine("----------------------------------------------------");
         }
 
         public void registrar_pedido()

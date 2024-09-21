@@ -1,4 +1,6 @@
-﻿namespace Practica1.Pratica1
+﻿using System;
+using System.Collections.Generic;
+namespace Practica1.Pratica1
 {
     public class Mesero
     {
@@ -25,18 +27,30 @@
             Pedidos.Add(pedido_aleatorio);
 
             Console.WriteLine($"El pedido {pedido_aleatorio.Id} fue registrado exitosamente a la mesa {mesa_aleatoria.Numero}.");
+            Console.WriteLine();
         }
 
         public void liquidar_factura(Mesa mesa_a_facturar)
         {
-            float total_factura = 0;
-            foreach (var pedido in mesa_a_facturar.Pedidos)
+            if (mesa_a_facturar.Pedidos.Count > 0)
             {
-                total_factura += pedido.Total;
+                float total_factura = 0;
+                foreach (var pedido in mesa_a_facturar.Pedidos)
+                {
+                    total_factura += pedido.Total;
+                }
+                Factura factura = new Factura(mesa_a_facturar.Numero, total_factura, calcular_propina(total_factura));
+                mesa_a_facturar.Factura = factura;
+                Console.WriteLine($"La factura fue liquidada correctamente a la mesa {mesa_a_facturar.Numero}.");
+                mesa_a_facturar.Pedidos.Clear();
+                Console.WriteLine();
             }
-            Factura factura = new Factura(mesa_a_facturar.Numero, total_factura, calcular_propina(total_factura));
-            mesa_a_facturar.Factura = factura;
-            Console.WriteLine($"La factura fue liquidada correctamente a la mesa {mesa_a_facturar.Numero}.");
+            else
+            {
+                Console.WriteLine("La mesa no tiene pedidos todavia, no se puede liquidar la factura.");
+                Console.WriteLine();
+            }
+            
         }
 
         public float calcular_propina(float total_factura)

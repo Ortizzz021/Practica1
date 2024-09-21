@@ -1,4 +1,6 @@
-﻿namespace Practica1.Pratica1
+﻿using Practica1.Practica1;
+
+namespace Practica1.Pratica1
 {
     public class MenuAdministrador
     {
@@ -17,37 +19,47 @@
 
         public void opciones_administrador()
         {
+            int opcion = 0;
             Console.WriteLine("Bienvenido al Menú del Administrador");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine("1. Ver cuantas mesas han atendido los meseros");
-            Console.WriteLine("2. Ver el total de las propinas de los meseros");
-            Console.WriteLine("3. Evaluar la efectividad de los meseros");
-            Console.WriteLine("4. Ver todas las mesas y sus gastos activos");
-            Console.WriteLine("5. Salir al menú principal");
-            string opcion = Console.ReadLine();
-
-            switch (opcion)
+            while (opcion != 5)
             {
-                case "1":
-                    visualizar_mesas_atendidas();
-                    break;
-                case "2":
-                    visualizar_propinas();
-                    break;
-                case "3":
-                    evaluar_efectividad();
-                    break;
-                case "4":
-                    visualizar_mesas();
-                    break;
-                case "5":
-                    Console.WriteLine("Saliendo del menú del administrador...");
-                    break;
-                default:
+                Console.WriteLine("1. Ver cuantas mesas han atendido los meseros");
+                Console.WriteLine("2. Ver el total de las propinas de los meseros");
+                Console.WriteLine("3. Evaluar la efectividad de los meseros");
+                Console.WriteLine("4. Ver todas las mesas y sus gastos activos");
+                Console.WriteLine("5. Salir al menú principal");
+                opcion = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+
+                if (opcion <= 0)
+                {
                     Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                    opciones_administrador();
-                    break;
+                    Console.WriteLine();
+                }
+                if (opcion == 1)
+                {
+                    visualizar_mesas_atendidas();
+                }
+                else if (opcion == 2)
+                {
+                    visualizar_propinas();
+                }
+                else if (opcion == 3)
+                {
+                    evaluar_efectividad();
+                }
+                else if (opcion == 4)
+                {
+                    visualizar_mesas();
+                }
+                else if (opcion > 5)
+                {
+                    Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
+                    Console.WriteLine();
+                }
             }
+            Console.WriteLine("------------------------------------");
         }
 
         public void visualizar_mesas_atendidas()
