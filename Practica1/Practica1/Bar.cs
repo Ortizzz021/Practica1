@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Text.RegularExpressions;
-using Practica1;
-using Practica1.Practica1;
+﻿using System.Text.RegularExpressions;
 
 namespace Practica1.Pratica1
 {

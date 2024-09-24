@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Practica1.Practica1;
 namespace Practica1.Pratica1
 {
-    public class Mesero
+    public class Mesero : IMesero
     {
         public string Id { get; set; }
         public string Nombre { get; set; }

@@ -7,7 +7,7 @@ namespace Practica1.Pratica1
         private List<Mesa> Mesas { get; set; }
         private List<Mesero> Meseros { get; set; }
         private List<Pedido> Pedidos { get; set; }
-        private Administrador Administrador { get; set; }
+        private IAdministrador Administrador { get; set; }
 
         public MenuAdministrador(List<Mesa> mesas, List<Mesero> meseros, List<Pedido> pedidos)
         {
