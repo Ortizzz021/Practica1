@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Practica1.Practica1;
-namespace Practica1.Pratica1
+﻿namespace Practica1.Pratica1
 {
-    public class Mesero : IMesero
+    public class Mesero
     {
         public string Id { get; set; }
         public string Nombre { get; set; }
@@ -18,7 +15,7 @@ namespace Practica1.Pratica1
             Propinas = 0;
         }
 
-        public void registrar_pedido(List<Pedido> pedidos, List<Mesa> mesas)
+        public Pedido registrar_pedido(List<Pedido> pedidos, List<Mesa> mesas)
         {
             Random random = new Random();
             Pedido pedido_aleatorio = pedidos[random.Next(pedidos.Count)];
@@ -29,38 +26,9 @@ namespace Practica1.Pratica1
 
             Console.WriteLine($"El pedido {pedido_aleatorio.Id} fue registrado exitosamente a la mesa {mesa_aleatoria.Numero}.");
             Console.WriteLine();
-        }
 
-        public void liquidar_factura(Mesa mesa_a_facturar)
-        {
-            if (mesa_a_facturar.Pedidos.Count > 0)
-            {
-                float total_factura = 0;
-                foreach (var pedido in mesa_a_facturar.Pedidos)
-                {
-                    total_factura += pedido.Total;
-                }
-                Factura factura = new Factura(mesa_a_facturar.Numero, total_factura, calcular_propina(total_factura));
-                mesa_a_facturar.Factura = factura;
-                Console.WriteLine($"La factura fue liquidada correctamente a la mesa {mesa_a_facturar.Numero}.");
-                mesa_a_facturar.Pedidos.Clear();
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("La mesa no tiene pedidos todavia, no se puede liquidar la factura.");
-                Console.WriteLine();
-            }
-            
+            return pedido_aleatorio;
         }
-
-        public float calcular_propina(float total_factura)
-        {
-            float propina = (float)(total_factura * 0.08);
-            Propinas += propina;
-            return propina;
-        }
-
         public int mesas_atendidas()
         {
             int mesas = 0;
